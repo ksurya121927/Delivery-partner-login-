@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, viewport-fit=cover"
+>
+
+<title>Foodnati | Delivery Partner Login</title>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+>
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+
+  width: 100%;
+  min-height: 100%;
+
+  font-family: 'DM Sans', sans-serif;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: #f6f6f6;
+}
+
+
+/* =========================
+   MAIN LOGIN PAGE
+========================= */
+
+.login-page {
+  width: 100%;
+  max-width: 500px;
+
+  min-height: 100dvh;
+
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #ffffff;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  position: relative;
+
+  width: 100%;
+
+  flex: 1 1 auto;
+
+  min-height: 300px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  overflow: hidden;
+
+  /* PURE WHITE - NO PINK */
+  background: #ffffff;
+}
+
+
+/* =========================
+   HERO IMAGE
+========================= */
+
+.hero img {
+  position: relative;
+
+  display: block;
+
+  width: 96%;
+  height: 96%;
+
+  max-width: 480px;
+
+  object-fit: contain;
+  object-position: center bottom;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+}
+
+
+/* =========================
+   LOGIN BOTTOM
+========================= */
+
+.login-bottom {
+  position: relative;
+
+  flex-shrink: 0;
+
+  width: 100%;
+
+  /* NO PINK */
+  background: #ffffff;
+
+  padding:
+    30px
+    22px
+    max(28px, env(safe-area-inset-bottom));
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.login-title {
+  margin: 0 0 30px;
+
+  text-align: center;
+
+  color: #111111;
+
+  font-family: 'Fredoka', sans-serif;
+
+  font-size: clamp(26px, 6vw, 34px);
+
+  font-weight: 600;
+
+  line-height: 1.3;
+}
+
+
+/* Foodnati text */
+.login-title span {
+  color: #E82B65;
+}
+
+
+/* =========================
+   PHONE BOX
+========================= */
+
+.phone-box {
+  width: 100%;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 0 15px;
+
+  background: #ffffff;
+
+  border: 1.5px solid #e5e5e5;
+
+  border-radius: 12px;
+
+  transition:
+    border-color .2s ease,
+    box-shadow .2s ease;
+}
+
+
+/* =========================
+   PHONE FOCUS
+========================= */
+
+.phone-box:focus-within {
+  border-color: #cccccc;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(0, 0, 0, 0.03);
+}
+
+
+/* =========================
+   FLAG
+========================= */
+
+.flag {
+  flex-shrink: 0;
+
+  font-size: 22px;
+
+  line-height: 1;
+}
+
+
+/* =========================
+   COUNTRY CODE
+========================= */
+
+.country-code {
+  flex-shrink: 0;
+
+  color: #111111;
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+
+/* =========================
+   SEPARATOR
+========================= */
+
+.separator {
+  flex-shrink: 0;
+
+  width: 1.5px;
+
+  height: 26px;
+
+  background: #333333;
+
+  border-radius: 20px;
+}
+
+
+/* =========================
+   MOBILE INPUT
+========================= */
+
+.phone-box input {
+  min-width: 0;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 0;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #111111;
+
+  font-family: 'DM Sans', sans-serif;
+
+  font-size: 17px;
+
+  font-weight: 500;
+
+  caret-color: #111111;
+}
+
+
+.phone-box input::placeholder {
+  color: #aaaaaa;
+
+  font-weight: 400;
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+.error {
+  min-height: 20px;
+
+  margin-top: 8px;
+
+  padding-left: 3px;
+
+  color: #d92353;
+
+  font-size: 13px;
+
+  font-weight: 500;
+}
+
+
+/* =========================
+   CONTINUE BUTTON
+========================= */
+
+.continue-btn {
+  width: 100%;
+  height: 60px;
+
+  margin-top: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  outline: none;
+
+  border-radius: 12px;
+
+  background: #E82B65;
+
+  color: #ffffff;
+
+  font-family: 'Fredoka', sans-serif;
+
+  font-size: 21px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform .15s ease,
+    opacity .15s ease;
+}
+
+
+.continue-btn:active {
+  transform: scale(.98);
+}
+
+
+.continue-btn:disabled {
+  opacity: .55;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 380px) {
+
+  .hero {
+    min-height: 270px;
+  }
+
+  .hero img {
+    width: 98%;
+    height: 98%;
+  }
+
+  .login-bottom {
+    padding:
+      25px
+      18px
+      max(24px, env(safe-area-inset-bottom));
+  }
+
+  .login-title {
+    margin-bottom: 24px;
+
+    font-size: 25px;
+  }
+
+  .phone-box,
+  .continue-btn {
+    height: 55px;
+  }
+
+}
+
+
+/* =========================
+   SHORT SCREEN
+========================= */
+
+@media (max-height: 700px) {
+
+  .hero {
+    min-height: 240px;
+  }
+
+  .login-bottom {
+    padding-top: 24px;
+  }
+
+  .login-title {
+    margin-bottom: 22px;
+
+    font-size: 25px;
+  }
+
+}
+
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media (min-width: 600px) {
+
+  body {
+    min-height: 100dvh;
+
+    display: grid;
+    place-items: center;
+
+    padding: 25px;
+  }
+
+
+  .login-page {
+    width: 420px;
+
+    min-height: min(850px, 95dvh);
+
+    max-height: 900px;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    box-shadow:
+      0 10px 45px
+      rgba(0, 0, 0, 0.07);
+  }
+
+
+  .hero {
+    flex: 1 1 auto;
+
+    min-height: 350px;
+
+    background: #ffffff;
+  }
+
+
+  .hero img {
+    width: 98%;
+    height: 98%;
+  }
+
+}
+
+
+/* =========================
+   LARGE DESKTOP
+========================= */
+
+@media (min-width: 1000px) {
+
+  .login-page {
+    width: 430px;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<main class="login-page">
+
+
+  <!-- FOODNATI IMAGE -->
+
+  <section class="hero">
+
+    <img
+      src="foodnati_delivery_team-removebg-preview.png"
+      alt="Foodnati Delivery Partners"
+    >
+
+  </section>
+
+
+
+  <!-- LOGIN -->
+
+  <section class="login-bottom">
+
+
+    <h1 class="login-title">
+
+      Start delivering orders
+
+      <br>
+
+      with <span>Foodnati</span>
+
+    </h1>
+
+
+
+    <form
+      id="loginForm"
+      novalidate
+    >
+
+
+      <div class="phone-box">
+
+
+        <span class="flag">
+          🇮🇳
+        </span>
+
+
+        <span class="country-code">
+          +91
+        </span>
+
+
+        <span class="separator"></span>
+
+
+        <input
+          id="mobile"
+          type="tel"
+          inputmode="numeric"
+          autocomplete="tel-national"
+          maxlength="10"
+          placeholder="Enter mobile number"
+          aria-label="Mobile number"
+          required
+        >
+
+
+      </div>
+
+
+
+      <div
+        id="error"
+        class="error"
+        role="alert"
+      ></div>
+
+
+
+      <button
+        id="continueBtn"
+        class="continue-btn"
+        type="submit"
+      >
+
+        Continue
+
+      </button>
+
+
+    </form>
+
+
+  </section>
+
+
+</main>
+
+
+
+<script>
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const form =
+  document.getElementById("loginForm");
+
+const mobile =
+  document.getElementById("mobile");
+
+const error =
+  document.getElementById("error");
+
+const continueBtn =
+  document.getElementById("continueBtn");
+
+
+/* =========================
+   MOBILE NUMBER INPUT
+========================= */
+
+mobile.addEventListener(
+  "input",
+  () => {
+
+    mobile.value =
+      mobile.value
+        .replace(/\D/g, "")
+        .slice(0, 10);
+
+    error.textContent = "";
+
+  }
+);
+
+
+/* =========================
+   FORM SUBMIT
+========================= */
+
+form.addEventListener(
+  "submit",
+  (event) => {
+
+    event.preventDefault();
+
+
+    const number =
+      mobile.value.trim();
+
+
+    /* INDIA MOBILE VALIDATION */
+
+    if (!/^[6-9]\d{9}$/.test(number)) {
+
+      error.textContent =
+        "Enter a valid 10-digit mobile number";
+
+      mobile.focus();
+
+      return;
+
+    }
+
+
+    error.textContent = "";
+
+
+    const fullMobile =
+      "+91" + number;
+
+
+    console.log(
+      "Validated mobile:",
+      fullMobile
+    );
+
+
+    /*
+      BACKEND OTP API
+      CONNECT HERE
+    */
+
+  }
+);
+
+</script>
+
+
+</body>
+</html>
